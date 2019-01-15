@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-    <!-- 
-    Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
-    Author: KeenThemes
-    Website: http://www.keenthemes.com/
-    Contact: support@keenthemes.com
-    Follow: www.twitter.com/keenthemes
-    Dribbble: www.dribbble.com/keenthemes
-    Like: www.facebook.com/keenthemes
-    Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-    Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-    License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
-    -->
-<html lang="en">
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en" >
 	<!-- begin::Head -->
 	<head>
 		<meta charset="utf-8" />
@@ -56,33 +56,21 @@
 								<div class="m-login__signin">
 									<div class="m-login__head">
 										<h3 class="m-login__title">
-                                            Sign In To Admin
-                                            {{ __('Login') }}
+											Sign In To Admin
 										</h3>
 									</div>
-									<form class="m-login__form m-form" action="{{ route('login')}}">
+									<form class="m-login__form m-form" action="">
 										<div class="form-group m-form__group">
-											<input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} m-input" type="text" placeholder="Email" name="email" autocomplete="off" value="{{ old('email') }}">
-                                            @if ($errors->has('email'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('email') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
+											<input class="form-control m-input" type="text" placeholder="Email" name="email" autocomplete="off">
+										</div>
 										<div class="form-group m-form__group">
-											<input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} m-input m-login__form-input--last" type="password" placeholder="Password" name="password">
-                                            @if ($errors->has('password'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('password') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
+											<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password">
+										</div>
 										<div class="row m-login__form-sub">
 											<div class="col m--align-left">
 												<label class="m-checkbox m-checkbox--focus">
-													<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                    Remember me
-                                                    {{-- {{ __('Remember Me') }} --}}
+													<input type="checkbox" name="remember">
+													Remember me
 													<span></span>
 												</label>
 											</div>
@@ -93,7 +81,7 @@
 											</div>
 										</div>
 										<div class="m-login__form-action">
-											<button id="m_login_signin_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+											<button id="m_login_signin_submit" type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
 												Sign In
 											</button>
 										</div>
@@ -102,43 +90,41 @@
 								<div class="m-login__signup">
 									<div class="m-login__head">
 										<h3 class="m-login__title">
-                                            Sign Up
+											Sign Up
 										</h3>
 										<div class="m-login__desc">
 											Enter your details to create your account:
 										</div>
 									</div>
-                                    <form class="m-login__form m-form" action="{{ route('register') }}">
-                                        @csrf
+									{{-- SIGNUP --}}
+									<form class="m-login__form m-form" action="{{ route ('register') }}">
+										@csrf
 										<div class="form-group m-form__group">
-                                            {{-- {{ __('Name') }} --}}
-                                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }} m-input" type="text" placeholder="Fullname" name="name" value="{{ old('name') }}" id="name" required autofocus>
-                                            @if ($errors->has('name'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('name') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
+											<input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }} m-input" type="text" placeholder="Fullname" value="{{ old('name') }}" name="name" required autofocus>
+											@if ($errors->has('name'))
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $errors->first('name') }}</strong>
+												</span>
+											@endif
+										</div>
 										<div class="form-group m-form__group">
-                                            {{-- {{ __('E-Mail Address') }} --}}
-                                            <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} m-input" type="text" placeholder="Email" name="email" autocomplete="off" value="{{ old('email') }}" required>
-                                            @if ($errors->has('email'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('email') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
+											<input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} m-input" name="email" value="{{ old('email') }}" type="text" placeholder="Email" name="email" autocomplete="off" required autofocus>
+											@if ($errors->has('email'))
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $errors->first('email') }}</strong>
+												</span>
+											@endif
+										</div>
 										<div class="form-group m-form__group">
-                                            {{-- {{ __('Password') }} --}}
-											<input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} m-input" type="password" placeholder="Password" name="password" required>
-                                            @if ($errors->has('password'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('password') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
+											<input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} m-input" type="password" placeholder="Password" name="password" required autofocus>
+											@if ($errors->has('password'))
+												<span class="invalid-feedback" role="alert">
+													<strong>{{ $errors->first('password') }}</strong>
+												</span>
+											@endif
+										</div>
 										<div class="form-group m-form__group">
-											<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="rpassword">
+											<input class="form-control m-input m-login__form-input--last" name="password_confirmationss" type="password" placeholder="Confirm Password" name="rpassword" required autofocus>
 										</div>
 										<div class="row form-group m-form__group m-login__form-sub">
 											<div class="col m--align-left">
@@ -155,7 +141,7 @@
 											</div>
 										</div>
 										<div class="m-login__form-action">
-											<button id="m_login_signup_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+											<button id="m_login_signup_submit" type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
 												Sign Up
 											</button>
 											<button id="m_login_signup_cancel" class="btn btn-outline-focus  m-btn m-btn--pill m-btn--custom">
@@ -197,13 +183,12 @@
 								&nbsp;&nbsp;
 								<a href="javascript:;" id="m_login_signup" class="m-link m-link--focus m-login__account-link">
 									Sign Up
-                                </a>
-                                
+								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content" style="background-image: url(../../../template/assets/app/media/img//bg/bg-4.jpg)">
+				<div class="m-grid__item m-grid__item--fluid m-grid m-grid--center m-grid--hor m-grid__item--order-tablet-and-mobile-1	m-login__content" style="background-image: url({{ asset ('template/assets/app/media/img//bg/bg-4.jpg')}})">
 					<div class="m-grid__item m-grid__item--middle">
 						<h3 class="m-login__welcome">
 							Join Our Community
